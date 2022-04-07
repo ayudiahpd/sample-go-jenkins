@@ -1,5 +1,5 @@
 node{
-    def root = '/usr/local/go/bin/go'
+    def root = "/usr/local/go/bin/go"
 
         stage 'Checkout'
         git url:'https://github.com/ayudiahpd/sample-go-jenkins.git'
