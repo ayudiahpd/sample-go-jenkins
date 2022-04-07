@@ -26,6 +26,11 @@ pipeline{
                 sh "${root} build ./..."
             }
         }
+        stage("Docker"){
+            steps{
+                sh "docker build -t my-jenkins ."
+            }
+        }
     }
     post{
         always{
