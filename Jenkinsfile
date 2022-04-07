@@ -13,7 +13,7 @@ pipeline{
         }
         stage("Go Docker"){
             steps{
-                sh "docker build -t ${docker}"
+                sh "docker build -t ${docker} ."
             }
         }
     }
