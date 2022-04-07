@@ -1,16 +1,15 @@
 node{
     def root = "/usr/local/go/bin/go"
 
-        stage 'Checkout'
-        git url:'https://github.com/ayudiahpd/sample-go-jenkins.git'
+    stage 'Checkout'
+    git url:'https://github.com/ayudiahpd/sample-go-jenkins.git'
 
-        stage 'preTest'
-        sh "${root} version"
+    stage 'preTest'
+    sh "${root} version"
 
-        stage 'Test'
-        sh "${root} test ./... -cover"
+    stage 'Test'
+    sh "${root} test ./... -cover"
 
-        stage 'Build'
-        sh "${root} build ./..."
-
+    stage 'Build'
+    sh "${root} build ./..."
 }
