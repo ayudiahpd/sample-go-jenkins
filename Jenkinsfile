@@ -1,20 +1,16 @@
 node{
-    def root = tool type:'go', name:'Go 1.15'
+    def root = '/usr/local/go/bin/go'
 
-    withEnv(["GOROOT=${root}", "PATH+GO=${root}/bin"]){
         stage 'Checkout'
         git url:'https://github.com/ayudiahpd/sample-go-jenkins.git'
 
         stage 'preTest'
-        sh 'go version'
+        sh "${root} version"
 
         stage 'Test'
-        sh 'go test -cover'
+        sh "${root} test ./... -cover"
 
         stage 'Build'
-        sh 'go build .'
-        
-        stage 'Deploy'
-    }
+        sh "${root} build ./..."
 
 }
